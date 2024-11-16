@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEventoFelipe.Views.hospedagemcontratada"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="Black">
+            
+ 
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+        <Label Text="Calculo do seu evento"
+               TextColor="{StaticResource White}"
+               FontFamily="PlaywriteGBSItalicVariableFontwght"
+               FontSize="35"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10">
+            <StackLayout Orientation="Horizontal">
+                <HorizontalStackLayout>
+                    <HorizontalStackLayout HorizontalOptions="FillAndExpand">
+
+                        <Grid   ColumnDefinitions="*, *, *"
+                     RowDefinitions="Auto, Auto, Auto">
+                            <Label Grid.Row="0" Grid.Column="0" Text="Nome do evento: "/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="Local do evento: "/>
+                            <Label Grid.Row="2" Grid.Column="0" Text="Participantes: "/>
+
+
+                            <Label  Grid.Row="0" Grid.Column="1" 
+                                    Text="{Binding Nome}"
+                                    TextColor="{StaticResource MidnightBlue}"
+/>
+                            <Label  Grid.Row="1" Grid.Column="1" 
+                                    Text="{Binding Local}"
+                                    TextColor="{StaticResource MidnightBlue}"/>
+
+                            <Label  Grid.Row="2" Grid.Column="1" 
+                                        Text="{Binding QntAdultos}"
+                                    TextColor="{StaticResource MidnightBlue}"/>
+
+                        </Grid>
+
+                    </HorizontalStackLayout>
+
+                </HorizontalStackLayout>
+            </StackLayout>
+        </Frame>
+        <Frame Margin="10">
+            <Grid ColumnDefinitions="2*, *, *"
+          RowDefinitions="Auto, Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Inicio do evento: "/>
+                <Label Grid.Row="1" Grid.Column="0" Text="Término do evento: "/>
+                <Label Grid.Row="2" Grid.Column="0" Text="Duração em dias: "/>
+
+
+                <Label Grid.Row="0" Grid.Column="1" 
+               Text="{Binding DataCheckin, StringFormat='{}{0:dd/MM/yyyy}'}"
+               TextColor="{StaticResource MidnightBlue}"/>
+                <Label Grid.Row="1" Grid.Column="1" 
+               Text="{Binding DataCheckout, StringFormat='{}{0:dd/MM/yyyy}'}"
+               TextColor="{StaticResource MidnightBlue}"/>
+                <Label Grid.Row="2" Grid.Column="1" 
+               Text="{Binding Estadia}"
+               TextColor="{StaticResource MidnightBlue}"/>
+
+
+
+
+
+            </Grid>
+
+        </Frame>
+        <Frame Margin="10">
+            <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                <Label Text="Valor Total do evento:  "/>
+                <Label Text="{Binding ValorTotal,  StringFormat='{}{0:c}'}"
+               TextColor="{StaticResource MidnightBlue}"/>
+
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Button Text="Voltar" Clicked="Button_Clicked"
+                HorizontalOptions="Center"/>
+
+
+
+    </VerticalStackLayout>
+</ContentPage>
